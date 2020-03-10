@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'window.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.0
+# Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -59,6 +59,4 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "->"))
         self.pushButton_4.setText(_translate("MainWindow", "Refresh"))
         self.pushButton_3.setText(_translate("MainWindow", "Перейти"))
-
-
 from PyQt5 import QtWebEngineWidgets
