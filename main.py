@@ -1,7 +1,8 @@
-from PyQt5 import QtWidgets, QtCore, QtWebEngine, QtNetwork
+import os
+
+from PyQt5 import QtWidgets, QtCore
 
 import window
-import os
 
 
 class Browser(QtWidgets.QMainWindow, window.Ui_MainWindow):
