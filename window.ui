@@ -103,11 +103,18 @@ padding: 6px 15px;</string>
         </item>
        </layout>
       </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>
-     <widget class="QWebEngineView" name="webEngineView">
-      <property name="url">
+     <widget class="QWebEngineView" name="webEngineView" native="true">
+      <property name="url" stdset="0">
        <url>
         <string>about:blank</string>
        </url>
