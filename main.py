@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets
 from window import Ui_MainWindow
 
-
 class Browser(QtWidgets.QWidget, Ui_MainWindow):
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
