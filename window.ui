@@ -45,7 +45,7 @@
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,1,0,0">
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,1,0,0">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -151,6 +151,32 @@ color: rgb(16, 16, 16);</string>
           </property>
           <property name="shortcut">
            <string>F5</string>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_6">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>resources/icons/history.svg</normaloff>resources/icons/history.svg</iconset>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+H</string>
           </property>
           <property name="flat">
            <bool>true</bool>
