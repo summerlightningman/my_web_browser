@@ -15,11 +15,14 @@ class Browser(QtWidgets.QMainWindow, window.Ui_MainWindow):
         self.pushButton_3.clicked.connect(self.browse)
         self.pushButton_4.clicked.connect(self.webEngineView.reload)
         self.pushButton_5.clicked.connect(self.save)
+        self.pushButton_6.clicked.connect(self.show_history)
 
         self.lineEdit.returnPressed.connect(self.pushButton_3.click)
 
-        self.webEngineView.urlChanged.connect(self.changeUrl)
-        self.webEngineView.loadProgress.connect(self.showProgress)
+        self.webEngineView.urlChanged.connect(self.change_url)
+        self.webEngineView.loadProgress.connect(self.show_progress)
+
+        self.tableWidget.setHidden(True)
 
     def browse(self):
         url = self.lineEdit.text()
@@ -28,10 +31,29 @@ class Browser(QtWidgets.QMainWindow, window.Ui_MainWindow):
         else:
             self.webEngineView.load(QtCore.QUrl('http://' + self.lineEdit.text()))
 
-    def changeUrl(self):
+    def show_history(self):
+        if self.tableWidget.isHidden():
+            self.tableWidget.setVisible(True)
+
+            history = list(map(lambda item:
+                               {
+                                   'title': QtWidgets.QTableWidgetItem(item.title()),
+                                   'url': QtWidgets.QTableWidgetItem(item.url().url())
+                               },
+                               self.webEngineView.history().items()))[::-1]
+            count = len(history)
+            self.tableWidget.setRowCount(count)
+            for i in range(count):
+                self.tableWidget.setItem(i, 0, history[i]['title'])
+                self.tableWidget.setItem(i, 1, history[i]['url'])
+        else:
+            self.tableWidget.setHidden(True)
+            self.tableWidget.clearContents()
+
+    def change_url(self):
         self.lineEdit.setText(self.webEngineView.url().url())
 
-    def showProgress(self, progress):
+    def show_progress(self, progress):
         self.statusbar.showMessage(f'Прогресс загрузки страницы: {progress}%', msecs=3000)
 
     def save(self):
@@ -50,5 +72,5 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     browser = Browser()
     browser.setWindowTitle('Бряузер гугол родий')
-    browser.show()
+    browser.showMaximized()
     sys.exit(app.exec_())
